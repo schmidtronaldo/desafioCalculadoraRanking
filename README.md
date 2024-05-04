@@ -21,7 +21,7 @@
 
 ## Criticas e sugestões são muito bem vindas!
 
-## Para acessar o projeto acesse o link :
+## Para acessar o projeto acesse o link : https://desafio-calculadora-ranking.vercel.app/
 
 ## Obrigado a todos professores da  @DIO e @Santander...
 
