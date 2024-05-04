@@ -17,10 +17,15 @@ body{
 
 .vidro{
     display: none;
-    width:500px;
+    width:250px;
     position:absolute;
     z-index: 5;
     
 }
 
 
+@media screen and (max-width:400px) {
+    .vidro{
+        width:25%;
+    }
+}
