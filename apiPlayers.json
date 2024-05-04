@@ -1,0 +1,53 @@
+
+{
+    "players": [
+      {
+        "id": 1,
+        "name": "joao",
+        "foto": "/assets/img/players/joao.jpg",
+        "victories": 15,
+        "defeats": 5,
+        "score": 800,
+        "xp": 475
+        
+      },
+      {
+        "id": 2,
+        "name": "maria",
+        "foto": "/assets/img/players/maria.jpg",
+        "victories": 20,
+        "defeats": 7,
+        "score": 1070,
+        "xp": 635
+      },
+      {
+        "id": 3,
+        "name": "felipe",
+        "foto": "/assets/img/players/felipe.jpg",
+        "victories": 10,
+        "defeats": 8,
+        "score": 580,
+        "xp": 340
+      },
+      {
+        "id": 4,
+        "name": "daniela",
+        "foto": "/assets/img/players/daniela.jpg",
+        "victories": 25,
+        "defeats":12,
+        "score": 1370,
+        "xp": 810
+      },
+      {
+        "id": 5,
+        "name": "katia",
+        "foto": "/assets/img/players/katia.jpg",
+        "victories": 13,
+        "defeats": 6,
+        "score": 710,
+        "xp": 420
+      }
+    ]
+    
+  }
+  
