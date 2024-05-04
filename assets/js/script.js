@@ -13,10 +13,11 @@ let infoPlayers=[];
 
 async function buscaDadosApiPlayers() {
     try {
-        const api = await fetch("apiPlayers.json");
+        const api = await fetch("http://localhost:3000/players/");
+        
         const data = await api.json();
-
-        infoPlayers = data.players;
+        
+        infoPlayers = data;
 
         renderizarCards(infoPlayers);
 
@@ -35,7 +36,7 @@ function renderizarCards(players){
             card.innerHTML = `
                 <img class="card-img" src="${player.foto}" alt="jogador">
                 <img  class="escudo" src="/assets/img/escudos/${statusPlayer[nivelPlayer]}.png" alt="escudo">
-                <h4 class="xpStatus">${statusPlayer[nivelPlayer].toUpperCase()}<h4/>
+                <h4 class="xpStatus">${statusPlayer[nivelPlayer].toUpperCase()}</h4>
                 <div class="card-info">
                     <h3>Name:</h3>
                     <h3 class="nome">${player.name.toUpperCase()}</h3>
@@ -61,7 +62,7 @@ function renderizarCards(players){
         });
     }  
    
-buscaDadosApiPlayers();
+    buscaDadosApiPlayers()
 
 inputPesquisaPlayer.addEventListener('input',(event)=>{
     const filtro = event.target.value.trim().toLowerCase(); 
@@ -73,18 +74,11 @@ inputPesquisaPlayer.addEventListener('input',(event)=>{
     renderizarCards(jogadoresFiltrados);
 });
 
-
-
-botaoInputPesquisa.addEventListener('click',()=>{
-    location. reload();
-   
-});
-
 const bgSound = new Audio("/assets/sfx/winning-elevation-111355.mp3");
 const tiro = new Audio("/assets/sfx/9mm-pistol-shoot-short-reverb-7152.mp3");
 const bonus = new Audio("/assets/sfx/bonus-points-190035.mp3");
 bgSound.volume= 0.3;
-tiro.volume = 0.5;
+tiro.volume = 0.2;
 bonus.volume = 0.5;
 
 document.addEventListener('mouseover',()=> bgSound.play());
@@ -92,12 +86,9 @@ document.addEventListener("click",()=> tiro.play());
 const bonusSound = document.querySelectorAll(".container-main");
 
 bonusSound.forEach((card)=>{
-    
     card.addEventListener("mouseover",()=> bonus.play())
 })
     
-
-
 function showImage(event) {
     const img = document.querySelector('.vidro');
     img.style.display = 'block';
@@ -108,90 +99,25 @@ function showImage(event) {
     },500);
 }
 
-// Adiciona um listener de clique no documento
-document.addEventListener('click', showImage);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//pega dados input apos botao clicado
-botaoInputPesquisa.addEventListener("click",()=>{
-    let dadosInput = inputPesquisaPlayer.value;
-    console.log(dadosInput);
-    inputPesquisaPlayer.value = "";
-    
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//teste2
-// inputPesquisaPlayer.addEventListener("input",filtrarPesquisa);
-
-// function filtrarPesquisa(){
-//     const mostraInfoPlayer = document.querySelectorAll(".card");
-//     if(inputPesquisaPlayer !== ""){
-//         for(let card in mostraInfoPlayer){
-//             let titulo = document.querySelector("#name").textContent.toLowerCase();
-//             console.log(titulo);
-//             let filtro = inputPesquisaPlayer.value.toLowerCase();
-//             console.log(filtro);
-//         }
-//         if(!titulo.includes(filtro)){
-//             mostraInfoPlayer.style.display ="none";
-//         }else{
-//             mostraInfoPlayer.style.display ="block";
-//         }
-//     }else{
-//         mostraInfoPlayer.style.display ="block";
-//     }
+document.addEventListener('click', showImage)
    
-// }
+inputPesquisaPlayer.addEventListener("input",filtrarPesquisa);
 
-
-
-
-
-
-
-
+function filtrarPesquisa(){
+    const mostraInfoPlayer = document.querySelectorAll(".card");
+    if(inputPesquisaPlayer !== ""){
+        for(let card in mostraInfoPlayer){
+            let titulo = document.querySelector("#name").textContent.toLowerCase();
+            console.log(titulo);
+            let filtro = inputPesquisaPlayer.value.toLowerCase();
+            console.log(filtro);
+        }
+        if(!titulo.includes(filtro)){
+            mostraInfoPlayer.style.display ="none";
+        }else{
+            mostraInfoPlayer.style.display ="block";
+        }
+    }else{
+        mostraInfoPlayer.style.display ="block";
+    }
+}
